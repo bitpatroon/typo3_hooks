@@ -37,14 +37,13 @@ class HooksHelper
         throw new \Exception('Class cannot be instantiated.', 15195151923);
     }
 
-
     /**
      * Method handles a hook
      * @param object|string $class  the instance of a class
      * @param string        $hookID The ID of a hook
      * @param array         $params the params to pass to the hooked function
      */
-    public static function processHook($class, $hookID, &$params = array())
+    public static function processHook($class, $hookID, &$params = [])
     {
 
         $className = self::getHookClassName($class);
