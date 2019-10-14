@@ -89,7 +89,7 @@ class HookedInstancesHelper
             throw new \InvalidArgumentException('Invalid value for $class', 1518000484);
         }
 
-        $className = \SPL\SplHooks\Helpers\HooksHelper::getHookClassName($class);
+        $className = HooksHelper::getHookClassName($class);
         if (empty($className)) {
             return $result;
         }
