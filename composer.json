@@ -25,7 +25,7 @@
   },
   "autoload": {
     "psr-4": {
-      "BPN\\Typo3Hooks\\": "Classes"
+      "Bitpatroon\\Typo3Hooks\\": "Classes"
     }
   }
 }
