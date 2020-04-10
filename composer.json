@@ -12,7 +12,8 @@
     {
       "name": "Sjoerd Zonneveld",
       "homepage": "https://www.bitpatroon.nl",
-      "role": "Developer"
+      "role": "Developer",
+	  "email": "github@bitpatroon.nl"
     }
   ],
   "minimum-stability": "stable",
