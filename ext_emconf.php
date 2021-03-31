@@ -8,6 +8,5 @@ $EM_CONF[$_EXTKEY] = [
     'author_email'                  => 'typo3@bitpatroon.nl',
     'state'                         => 'stable',
     'author_company'                => 'Bitpatroon',
-    'version'                       => '1.0.0',
-    ],
+    'version'                       => '1.0.0'
 ];
