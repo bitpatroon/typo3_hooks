@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -25,6 +26,8 @@
  ***************************************************************/
 
 namespace Bitpatroon\Typo3Hooks\Helpers;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class HookedInstancesHelper
 {
@@ -104,7 +107,7 @@ class HookedInstancesHelper
             if (!is_string($hookedInstanceName)) {
                 continue;
             }
-            $hookedInstance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance($hookedInstanceName);
+            $hookedInstance = GeneralUtility::makeInstance($hookedInstanceName);
             if (empty($hookedInstance)) {
                 continue;
             }
@@ -137,5 +140,4 @@ class HookedInstancesHelper
         $interfaces = class_implements($instance);
         return in_array($interfaceName, $interfaces);
     }
-
 }

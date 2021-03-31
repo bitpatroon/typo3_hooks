@@ -28,5 +28,10 @@
     "psr-4": {
       "Bitpatroon\\Typo3Hooks\\": "Classes"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "typo3_hooks"
+    }
   }
 }

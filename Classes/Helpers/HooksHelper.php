@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -26,15 +27,20 @@
 
 namespace Bitpatroon\Typo3Hooks\Helpers;
 
+use Exception;
+use InvalidArgumentException;
+use RuntimeException;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 class HooksHelper
 {
     /**
      * HooksHelper constructor.
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct()
     {
-        throw new \Exception('Class cannot be instantiated.', 15195151923);
+        throw new RuntimeException('Class cannot be instantiated.', 15195151923);
     }
 
     /**
@@ -56,7 +62,7 @@ class HooksHelper
         ksort($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][$className][$hookID], SORT_STRING);
         foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][$className][$hookID] as $_funcRef) {
             if ($_funcRef) {
-                \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $params, $class);
+                GeneralUtility::callUserFunction($_funcRef, $params, $class);
             }
         }
     }
@@ -69,12 +75,18 @@ class HooksHelper
     public static function getHookClassName($class)
     {
         if (empty($class)) {
-            throw new \InvalidArgumentException('Invalid value for $class', 15195150025);
+            throw new InvalidArgumentException(
+                'Invalid value for $class',
+                15195150025
+            );
         }
 
         $className = '';
         if (is_array($class)) {
-            throw new \InvalidArgumentException('Invalid value for $class. Expected object instance.', 1511185358);
+            throw new InvalidArgumentException(
+                'Invalid value for $class. Expected object instance.',
+                1511185358
+            );
         }
 
         if (is_object($class)) {
@@ -85,7 +97,10 @@ class HooksHelper
             }
         }
         if (empty($className)) {
-            throw new \InvalidArgumentException('Invalid value for $class. Expected object instance.', 15195151637);
+            throw new InvalidArgumentException(
+                'Invalid value for $class. Expected object instance.',
+                15195151637
+            );
         }
 
         return $className;
@@ -100,14 +115,14 @@ class HooksHelper
     public static function hasHooksConnected($className, $hookID)
     {
         if (empty($className)) {
-            throw new \InvalidArgumentException('Invalid value for $className', 1516360138);
+            throw new InvalidArgumentException('Invalid value for $className', 1516360138);
         }
         if (!is_string($className)) {
             $className = self::getHookClassName($className);
         }
 
         if (empty($hookID)) {
-            throw new \InvalidArgumentException('Invalid value for $hookID', 15195150018);
+            throw new InvalidArgumentException('Invalid value for $hookID', 15195150018);
         }
 
 
@@ -129,14 +144,14 @@ class HooksHelper
     public static function getConnectedHooks($className, $hookID)
     {
         if (empty($className)) {
-            throw new \InvalidArgumentException('Invalid value for $className', 1516360138);
+            throw new InvalidArgumentException('Invalid value for $className', 1516360138);
         }
         if (!is_string($className)) {
             $className = self::getHookClassName($className);
         }
 
         if (empty($hookID)) {
-            throw new \InvalidArgumentException('Invalid value for $hookID', 15195150018);
+            throw new InvalidArgumentException('Invalid value for $hookID', 15195150018);
         }
 
 

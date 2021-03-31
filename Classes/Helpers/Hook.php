@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -34,8 +35,9 @@ use TYPO3\CMS\Core\SingletonInterface;
  */
 class Hook implements SingletonInterface
 {
-    public function processHook($class, $hookID, &$params = []){
-        \Bitpatroon\Typo3Hooks\Helpers\HooksHelper::processHook($class, $hookID,$params );
+    public function processHook($class, $hookID, &$params = [])
+    {
+        HooksHelper::processHook($class, $hookID, $params);
     }
 
     /**
@@ -43,8 +45,9 @@ class Hook implements SingletonInterface
      * @param object|mixed|string $class
      * @return string
      */
-    public function getHookClassName($class){
-        return \Bitpatroon\Typo3Hooks\Helpers\HooksHelper::getHookClassName($class);
+    public function getHookClassName($class)
+    {
+        return HooksHelper::getHookClassName($class);
     }
 
     /**
@@ -55,7 +58,7 @@ class Hook implements SingletonInterface
      */
     public static function hasHooksConnected($className, $hookID)
     {
-        return \Bitpatroon\Typo3Hooks\Helpers\HooksHelper::hasHooksConnected($className, $hookID);
+        return HooksHelper::hasHooksConnected($className, $hookID);
     }
 
     /**
@@ -66,7 +69,7 @@ class Hook implements SingletonInterface
      */
     public static function getConnectedHooks($className, $hookID)
     {
-        return \Bitpatroon\Typo3Hooks\Helpers\HooksHelper::getConnectedHooks($className, $hookID);
+        return HooksHelper::getConnectedHooks($className, $hookID);
     }
 
     /**
@@ -78,6 +81,6 @@ class Hook implements SingletonInterface
      */
     public static function processHookWithResult($class, $hookId, &$parameters)
     {
-        return \Bitpatroon\Typo3Hooks\Helpers\HooksHelper::processHookWithResult($class, $hookId, $parameters);
+        return HooksHelper::processHookWithResult($class, $hookId, $parameters);
     }
 }
